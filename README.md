@@ -21,7 +21,7 @@ chattr +ia /root/king.txt
 sudo mount --bind -o ro /root/king.txt /root/king.txt 2>/dev/null
 ```
 ## Snatch Other's king and make it yours 😂
-1.If you cant overwrite king.txt the some one already set noclobber on `king.txt` you can unset it by
+1.If you cant overwrite king.txt then someone already set noclobber on `king.txt` you can unset it by
 ```sh
 set +o noclobber /root/king.txt
 ```
@@ -34,7 +34,7 @@ echo "USERNAME" >| /root/king.txt
 ```sh
 chattr -ia /root/king.txt
 ```
-3.If `read-only system file` appears when you weite your name in it , then someone mounted it to make `king.txt` unwritable, to unmount it 
+3.If `read-only system file` appears when you write your name in it , then someone mounted it to make `king.txt` unwritable, to unmount it 
 ```sh
 sudo umount -l /root/king.txt
 ```
