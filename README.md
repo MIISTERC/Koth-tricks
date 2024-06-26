@@ -41,6 +41,9 @@ chattr -ia /root
 sudo umount -l /root/king.txt
 sudo umount -l /root
 ```
+<hr>
+level - 1
+<hr>
 
 
 
