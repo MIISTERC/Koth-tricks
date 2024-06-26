@@ -12,8 +12,9 @@ set -o noclobber /root/king.txt
 ```
 2.Make King.txt unwritable using `chattr` chattr makes king.txt unwritable even for root.
 ```sh
-#add the immutable bit to king.txt
+#add the immutable bit to king.txt and /root
 chattr +ia /root/king.txt
+chattr +ia /root
 ```
 3.Make `king.txt` a read-only system file, make sure you are `root` before running the below command.
 ```sh
@@ -30,13 +31,15 @@ or
 echo "USERNAME" >| /root/king.txt
 ```
 
-2.When you write your username to `king.txt` and `operation not permitted` occurs then probably someone used `chattr` , you can easily remove the immutable bit from king.txt by
+2.When you write your username to `king.txt` and `operation not permitted` occurs then probably someone used `chattr` on king.txt or /root, you can easily remove the immutable bit from king.txt by
 ```sh
 chattr -ia /root/king.txt
+chattr -ia /root
 ```
-3.If `read-only system file` appears when you write your name in it , then someone mounted it to make `king.txt` unwritable, to unmount it 
+3.If `read-only system file` appears when you write your name in it , then someone mounted it to make `king.txt` unwritable, some players also mount whole /root,to unmount it 
 ```sh
 sudo umount -l /root/king.txt
+sudo umount -l /root
 ```
 
 
